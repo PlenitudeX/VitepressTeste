@@ -1,0 +1,31 @@
+header {
+    background-color: blue;
+}
+
+.VPDoc {
+    padding: 0 !important;
+}
+
+.VPDocFooter {
+    display: none;
+}
+
+.VPDoc.has-aside .content-container {
+    margin: 0 !important;
+}
+
+.content-container {
+    max-width: 100% !important;
+}
+
+.VPDoc.has-aside .content, .VPDoc.has-aside .container {
+    max-width: 100% !important;
+}
+
+.content {
+    padding: 0 !important;
+}
+
+.VPTeamMembers {
+    padding: 10px;
+}
