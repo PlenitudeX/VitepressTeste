@@ -1,9 +1,10 @@
 import { defineConfig } from 'vitepress'
-// import './style.css'
+
+const titulo = ''
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Modelo Landpage",
+  title: titulo || "Modelo LandPage",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -13,3 +14,5 @@ export default defineConfig({
 
   }
 })
+
+
