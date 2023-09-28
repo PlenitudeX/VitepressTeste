@@ -1,5 +1,4 @@
 <script setup>
-import { VPTeamMembers } from 'vitepress/theme'
 import Componente from './Template.vue'
 import './.vitepress/style.css'
 
@@ -17,6 +16,6 @@ const members = [
 </script>
 
 
-<!-- <VPTeamMembers size="small" :members="members" /> -->
+
 <Componente />
 

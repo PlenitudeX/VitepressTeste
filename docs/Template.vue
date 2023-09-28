@@ -1,38 +1,24 @@
 <template>
-    <div class="oficina-mecanica">
-        <section class="banner">
-            <h1>Bem-vindo à Oficina Mecânica</h1>
-            <p>Serviços de Qualidade para o seu Veículo</p>
-        </section>
-        <section class="servicos">
-            <div>
-                <h2>Nossos Serviços</h2>
-                <p>Oferecemos uma variedade de serviços de qualidade para o seu veículo.</p>
+    <div>
+        <div class="oficina-mecanica">
+            <section class="banner">
+                <h1>Bem-vindo à Oficina Mecânica</h1>
+                <p>Serviços de Qualidade para o seu Veículo</p>
+            </section>
+            <section class="servicos">
+                <div>
+                    <h2>Nossos Serviços</h2>
+                    <p>Oferecemos uma variedade de serviços de qualidade para o seu veículo.</p>
+                </div>
                 <div class="container">
-                    <a href="https://youtube.com" target="_blank">
-                        <Badge type="tip" text="Youtube"></Badge>
-                    </a>
-                    <a href="https://youtube.com" target="_blank">
-                        <Badge type="warning" text="Youtube"></Badge>
-                    </a>
-                    <a href="https://youtube.com" target="_blank">
-                        <Badge type="danger" text="Youtube"></Badge>
-                    </a>
-                    <a href="https://youtube.com" target="_blank">
-                        <Badge type="info" text="Youtube"></Badge>
-                    </a>
+                    <div class="card" v-for="servico in servicos" :key="servico.id">
+                        <h3>{{ servico.titulo }}</h3>
+                        <p>{{ servico.descricao }}</p>
+                    </div>
                 </div>
-            </div>
-        </section>
-        <section class="cards-servicos">
-            <div class="container">
-                <div class="card" v-for="servico in servicos" :key="servico.id">
-                    <h3>{{ servico.titulo }}</h3>
-                    <p>{{ servico.descricao }}</p>
-                </div>
-            </div>
-        </section>
-        <VPTeamMembers size="small" :members="members" />
+            </section>
+            <VPTeamMembers size="small" :members="members" />
+        </div>
         <footer class="footer">
             <div>
                 <div class="footer-content">
@@ -50,7 +36,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    &copy; 2023 Oficina Mecânica. Todos os direitos reservados.
+                    &copy; 2023 Oficina Mecânica. Feito por <a href="https://www.instagram.com/plenitude_x/">Plenitudex</a>.
                 </div>
             </div>
         </footer>
@@ -100,13 +86,14 @@ const servicos = ref([
 <style scoped>
 .oficina-mecanica {
     font-family: Arial, sans-serif;
+    margin: 0 2rem;
 }
 
 .banner {
     /* background-image: url("@/assets/banner.jpg"); */
     background-color: red;
     background-size: cover;
-    color: #fff;
+    color: #333;
     text-align: center;
     padding: 100px 0;
 }
@@ -133,11 +120,6 @@ const servicos = ref([
 
 .servicos p {
     font-size: 18px;
-}
-
-.cards-servicos {
-    padding: 50px 0;
-    text-align: center;
 }
 
 .container {

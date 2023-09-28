@@ -29,3 +29,9 @@ header {
 .VPTeamMembers {
     padding: 10px;
 }
+
+.vp-doc h2 {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
