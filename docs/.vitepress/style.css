@@ -1,25 +1,13 @@
-.VPDoc {
+.VPDoc, .content, .vp-doc h2 {
     padding: 0 !important;
 }
 
-.VPDocFooter {
-    display: none;
-}
-
-.VPDoc.has-aside .content-container {
+.VPDoc.has-aside .content-container, .vp-doc h2 {
     margin: 0 !important;
 }
 
-.content-container {
+.VPDoc.has-aside .content, .VPDoc.has-aside .container, .content-container, .aside {
     max-width: 100% !important;
-}
-
-.VPDoc.has-aside .content, .VPDoc.has-aside .container {
-    max-width: 100% !important;
-}
-
-.content {
-    padding: 0 !important;
 }
 
 .VPTeamMembers {
@@ -27,13 +15,14 @@
 }
 
 .vp-doc h2 {
-    margin: 0px;
-    padding: 0px;
     border: none;
 }
 
 .aside{
     padding-left: 0 !important;
     width: 0 !important;
-    max-width: 100% !important;
+}
+
+.VPNavBarExtra, .VPNavScreenAppearance, .VPDocFooter, .VPNavBarAppearance {
+    display: none !important;
 }
