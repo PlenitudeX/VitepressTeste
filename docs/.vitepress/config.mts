@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 
-const titulo = ''
+const titulo = 'Titulo site'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
