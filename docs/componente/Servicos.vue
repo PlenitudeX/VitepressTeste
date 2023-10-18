@@ -1,13 +1,13 @@
 <template>
-    <section class="servicos">
+    <section :style="{ background }" class="servicos">
         <div>
-            <h2>Nossos Serviços</h2>
-            <p>Oferecemos uma variedade de serviços de qualidade para o seu veículo.</p>
+            <h2 :style="{ color: white }">Nossos Serviços</h2>
+            <p :style="{ color: white }">Oferecemos uma variedade de serviços de qualidade para o seu veículo.</p>
         </div>
         <div class="container">
-            <div class="card" v-for="servico in servicos" :key="servico.id">
-                <h3>{{ servico.titulo }}</h3>
-                <p>{{ servico.descricao }}</p>
+            <div :style="{background: body}" class="card" v-for="servico in servicos" :key="servico.id">
+                <h3 :style="{color: title}">{{ servico.titulo }}</h3>
+                <p :style="{color}">{{ servico.descricao }}</p>
             </div>
         </div>
     </section>
@@ -15,6 +15,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import tema from '../../tema.json';
 
 const servicos = ref([
     {
@@ -48,12 +49,18 @@ const servicos = ref([
         descricao: 'Serviços de motor em geral.',
     },
 ])
+
+const background = tema[0].$schema.Secondary;
+const white = tema[0].$schema.White;
+const gradiant = tema[0].$schema
+const body = `linear-gradient(90deg, ${gradiant.Body} 0%, ${gradiant.White} 50%, ${gradiant.Body} 100%);`
+const title = tema[0].$schema.Primary;
+const color = tema[0].$schema.Text;
 </script>
 
 <style>
 .servicos {
-    background-color: #f5f5f5;
-    padding: 100px 0;
+    padding: 50px 0;
     text-align: center;
 }
 
@@ -74,7 +81,7 @@ const servicos = ref([
 }
 
 .servicos .card {
-    background-color: #fff;
+    background: linear-gradient(90deg, #8c8c8c 0%, #ddd 47%, #8c8c8c 100%);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 20px 40px;

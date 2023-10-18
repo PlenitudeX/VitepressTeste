@@ -1,31 +1,37 @@
 <template>
-    <footer class="footer">
+    <footer :style="{background, color: white}" class="footer">
             <div>
                 <div class="footer-content">
                     <div class="footer-section">
-                        <h3>Contato</h3>
+                        <h3 :style="{color}">Contato</h3>
                         <p>Endereço: Rua da Oficina, 123</p>
                         <p>Telefone: (11) 1234-5678</p>
                         <p>Email: contato@oficinamecanica.com</p>
                     </div>
                     <div class="footer-section">
-                        <h3>Horário de Funcionamento</h3>
+                        <h3 :style="{color}">Horário de Funcionamento</h3>
                         <p>Segunda a Sexta: 8h - 18h</p>
                         <p>Sábado: 9h - 12h</p>
                         <p>Domingo: Fechado</p>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    &copy; 2023 Oficina Mecânica. Feito por <a href="https://www.instagram.com/plenitude_x/">Plenitudex</a>.
+                    &copy; 2023 Oficina Mecânica. Feito por <a :style="{color: white}" href="https://www.instagram.com/plenitude_x/">Plenitudex</a>.
                 </div>
             </div>
         </footer>
 </template>
 
+<script setup lang="ts">
+import tema from '../../tema.json'
+
+const color = tema[0].$schema.Primary
+const background = tema[0].$schema.Footer
+const white = tema[0].$schema.White
+</script>
+
 <style>
 .footer {
-    background-color: #333;
-    color: #fff;
     padding: 20px 0 0;
     text-align: center;
 }
@@ -51,23 +57,14 @@
 }
 
 .footer-bottom {
-    background-color: #222;
     padding: 10px 0;
-}
-
-.footer-bottom a {
-    color: #fff;
-}
-
-.footer-bottom a:hover {
-    color: #aaa;
 }
 
 @media screen and (max-width: 700px) {
     .footer-content {
         flex-direction: column;
     }
-    
+
 }
 
 </style>

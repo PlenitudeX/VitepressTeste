@@ -2,6 +2,7 @@
     <div class="oficina-mecanica">
         <Banner />
         <Servicos />
+        <h3>Funcionários</h3>
         <VPTeamMembers size="small" :members="members" />
     </div>
     <Footer />
@@ -31,6 +32,11 @@ const members = [
 <style scoped>
 .oficina-mecanica {
     font-family: Arial, sans-serif;
-    margin: 0 2rem;
+}
+
+.oficina-mecanica h3 {
+    text-align: center;
+    font-size: 36px;
+    margin: 20px 0;
 }
 </style>

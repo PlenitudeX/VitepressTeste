@@ -1,0 +1,22 @@
+[
+    {
+        "$schema": {
+            "Primary": "#ff0000",
+            "Secondary": "#323233",
+            "Body": "#8c8c8c",
+            "Text": "#000",
+            "White": "#fff",
+            "Footer": "#333"
+        }
+    },
+    {
+        "$schema": {
+            "Primary": "#",
+            "Secondary": "#",
+            "Body": "#",
+            "Text": "#",
+            "White": "#",
+            "Footer": "#"
+        }
+    }
+]
