@@ -25,9 +25,15 @@
 <script setup lang="ts">
 import tema from '../../tema.json'
 
-const color = tema[0].$schema.Primary
-const background = tema[0].$schema.Footer
-const white = tema[0].$schema.White
+const props = defineProps<{
+    tema: string
+}>()
+
+const style = props.tema || 0
+
+const color = tema[style].$schema.Primary
+const background = tema[style].$schema.Footer
+const white = tema[style].$schema.White
 </script>
 
 <style>

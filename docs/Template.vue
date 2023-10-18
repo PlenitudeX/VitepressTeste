@@ -1,11 +1,11 @@
 <template>
     <div class="oficina-mecanica">
-        <Banner />
-        <Servicos />
+        <Banner :tema="Tema"/>
+        <Servicos :tema="Tema"/>
         <h3>Funcionários</h3>
         <VPTeamMembers size="small" :members="members" />
     </div>
-    <Footer />
+    <Footer :tema="Tema"/>
 </template>
 
 <script setup>
@@ -26,6 +26,8 @@ const members = [
         title: 'Diretor Executivo',
     },
 ]
+
+const Tema = window.location.search.split('=')[1]
 
 </script>
 

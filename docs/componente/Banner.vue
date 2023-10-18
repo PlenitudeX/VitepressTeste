@@ -10,10 +10,14 @@
 <script setup lang="ts">
 import tema from '../../tema.json'
 
-const color = tema[0].$schema.Primary
-const colorText = tema[0].$schema.Text
+const props = defineProps<{
+    tema: string
+}>()
 
-console.log(tema)
+const style = props.tema || 0
+
+const color = tema[style].$schema.Primary
+const colorText = tema[style].$schema.Text
 </script>
 
 <style>

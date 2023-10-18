@@ -11,12 +11,12 @@
     },
     {
         "$schema": {
-            "Primary": "#",
-            "Secondary": "#",
-            "Body": "#",
-            "Text": "#",
-            "White": "#",
-            "Footer": "#"
+            "Primary": "#00008B",
+            "Secondary": "#af8c00",
+            "Body": "#808080",
+            "Text": "#000",
+            "White": "#fff",
+            "Footer": "#808080"
         }
     }
 ]

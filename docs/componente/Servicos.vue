@@ -13,7 +13,7 @@
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import tema from '../../tema.json';
 
@@ -50,12 +50,18 @@ const servicos = ref([
     },
 ])
 
-const background = tema[0].$schema.Secondary;
-const white = tema[0].$schema.White;
-const gradiant = tema[0].$schema
-const body = `linear-gradient(90deg, ${gradiant.Body} 0%, ${gradiant.White} 50%, ${gradiant.Body} 100%);`
-const title = tema[0].$schema.Primary;
-const color = tema[0].$schema.Text;
+const props = defineProps<{
+    tema: string
+}>()
+
+const style = props.tema || 0
+
+const background = tema[style].$schema.Secondary;
+const white = tema[style].$schema.White;
+const gradiant = tema[style].$schema
+const body = `linear-gradient(90deg, ${gradiant.Body} 0%, ${gradiant.White} 50%, ${gradiant.Body} 100%)`
+const title = tema[style].$schema.Primary;
+const color = tema[style].$schema.Text;
 </script>
 
 <style>
@@ -81,7 +87,6 @@ const color = tema[0].$schema.Text;
 }
 
 .servicos .card {
-    background: linear-gradient(90deg, #8c8c8c 0%, #ddd 47%, #8c8c8c 100%);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 20px 40px;
