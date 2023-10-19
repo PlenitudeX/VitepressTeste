@@ -1,11 +1,11 @@
 <template>
     <div class="oficina-mecanica">
-        <Banner :tema="Tema" :email="email"/>
-        <Servicos :tema="Tema" :email="email"/>
+        <Banner :tema="Tema || 0" :email="email || 'meuemail@gmail.com'"/>
+        <Servicos :tema="Tema || 0" :email="email || 'meuemail@gmail.com'"/>
         <h3>Funcionários</h3>
         <VPTeamMembers size="small" :members="members" />
     </div>
-    <Footer :tema="Tema"/>
+    <Footer :tema="Tema || 0"/>
 </template>
 
 <script setup>
