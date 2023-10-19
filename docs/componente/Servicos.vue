@@ -8,6 +8,7 @@
             <div v-if="data" :style="{background: body}" class="card" v-for="servicos in data">
                 <h3 :style="{color: title}">{{ servicos.titulo }}</h3>
                 <p :style="{color}">{{ servicos.legenda }}</p>
+                <button :style="{background: white}">{{ servicos.botao }}</button>
             </div>
             <div v-else :style="{background: body}" class="card" v-for="servico in servicos" :key="servico.id">
                 <h3 :style="{color: title}">{{ servico.titulo }}</h3>
@@ -81,7 +82,7 @@ const servicos = ref([
 
 
 
-const style = props.tema || 0
+const style = props.tema
 
 const background = tema[style].$schema.Secondary;
 const white = tema[style].$schema.White;
@@ -132,5 +133,13 @@ const color = tema[style].$schema.Text;
 
 .servicos .card:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.servicos .card button {
+    /* background-color: #fff; */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
 }
 </style>

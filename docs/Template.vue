@@ -1,7 +1,7 @@
 <template>
     <div class="oficina-mecanica">
-        <Banner :tema="Tema || 0" :email="email || 'meuemail@gmail.com'"/>
-        <Servicos :tema="Tema || 0" :email="email || 'meuemail@gmail.com'"/>
+        <Banner :tema="Tema" :email="email"/>
+        <Servicos :tema="Tema" :email="email"/>
         <h3>Funcionários</h3>
         <VPTeamMembers size="small" :members="members" />
     </div>
@@ -28,8 +28,8 @@ const members = [
     },
 ]
 
-const Tema = window.location.search.split('=')[1].slice(0, 1)
-const email = window.location.search.split('=')[2].slice(0)
+const Tema = window.location.search.split('=')[1]?.slice(0, 1) || '0'
+const email = window.location.search.split('=')[2]?.slice(0) || 'meuemail@gmail.com'
 
 </script>
 
