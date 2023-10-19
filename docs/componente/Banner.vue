@@ -1,18 +1,44 @@
 <template>
     <section class="banner">
         <div class="fundo">
-            <h1 :style="{ color }">Bem-vindo à Oficina Mecânica</h1>
-            <p :style="{color: colorText}">Serviços de Qualidade para o seu Veículo</p>
+            <h1 :style="{ color }">{{ data.titulo }}</h1>
+            <p :style="{color: colorText}">{{ data.legenda }}</p>
         </div>
     </section>
 </template>
 
 <script setup lang="ts">
 import tema from '../../tema.json'
+import { mongoFind } from '../mongo'
+import { onMounted, ref } from 'vue'
 
 const props = defineProps<{
-    tema: string
+    tema: string,
+    email: string
 }>()
+
+const data = ref('')
+const email = props.email
+
+async function buscarDados() {
+  try {
+    const alldata = await mongoFind(email);
+    data.value = alldata[0].resposta.banner;
+    return data.value
+  } catch (erro) {
+    console.error('Erro ao buscar dados:', erro);
+  }
+}
+
+onMounted(() => {
+  buscarDados()
+})
+
+
+
+
+console.log("Todos dados do banner: ",props);
+
 
 const style = props.tema || 0
 
@@ -61,6 +87,34 @@ const colorText = tema[style].$schema.Text
     .banner p {
         font-size: 18px;
         top: 12rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner {
+        height: 30vh;
+    }
+
+    .banner h1 {
+        top: 3rem;
+    }
+
+    .banner p {
+        top: 8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .banner {
+        height: 20vh;
+    }
+
+    .banner h1 {
+        top: 2rem;
+    }
+
+    .banner p {
+        top: 5rem;
     }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="oficina-mecanica">
-        <Banner :tema="Tema"/>
-        <Servicos :tema="Tema"/>
+        <Banner :tema="Tema" :email="email"/>
+        <Servicos :tema="Tema" :email="email"/>
         <h3>Funcionários</h3>
         <VPTeamMembers size="small" :members="members" />
     </div>
@@ -13,6 +13,7 @@ import { VPTeamMembers } from 'vitepress/theme'
 import Banner from './componente/Banner.vue'
 import Servicos from './componente/Servicos.vue'
 import Footer from './componente/Footer.vue'
+
 
 const members = [
     {
@@ -27,7 +28,8 @@ const members = [
     },
 ]
 
-const Tema = window.location.search.split('=')[1]
+const Tema = window.location.search.split('=')[1].slice(0, 1)
+const email = window.location.search.split('=')[2].slice(0)
 
 </script>
 

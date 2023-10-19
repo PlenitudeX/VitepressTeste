@@ -5,7 +5,11 @@
             <p :style="{ color: white }">Oferecemos uma variedade de serviços de qualidade para o seu veículo.</p>
         </div>
         <div class="container">
-            <div :style="{background: body}" class="card" v-for="servico in servicos" :key="servico.id">
+            <div v-if="data" :style="{background: body}" class="card" v-for="servicos in data">
+                <h3 :style="{color: title}">{{ servicos.titulo }}</h3>
+                <p :style="{color}">{{ servicos.legenda }}</p>
+            </div>
+            <div v-else :style="{background: body}" class="card" v-for="servico in servicos" :key="servico.id">
                 <h3 :style="{color: title}">{{ servico.titulo }}</h3>
                 <p :style="{color}">{{ servico.descricao }}</p>
             </div>
@@ -14,8 +18,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+// import { ref } from 'vue';
 import tema from '../../tema.json';
+
+const props = defineProps<{
+    tema: string
+    email: string
+}>()
+
+import { mongoFind } from '../mongo'
+import { onMounted, ref } from 'vue'
+
+const data = ref('');
+const email = props.email
+
+async function buscarDados() {
+  try {
+    const alldata = await mongoFind(email);
+    data.value = alldata[0].resposta.beneficios;
+    return data.value
+  } catch (erro) {
+    console.error('Erro ao buscar dados:', erro);
+  }
+}
+
+onMounted(() => {
+  buscarDados()
+})
 
 const servicos = ref([
     {
@@ -50,9 +79,7 @@ const servicos = ref([
     },
 ])
 
-const props = defineProps<{
-    tema: string
-}>()
+
 
 const style = props.tema || 0
 
