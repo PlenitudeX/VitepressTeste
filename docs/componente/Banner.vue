@@ -1,9 +1,14 @@
 <template>
     <section class="banner">
-        <div class="fundo">
-            <h1 :style="{ color }">{{ data.titulo || 'Melhores serviços para você' }}</h1>
-            <p :style="{color: colorText}">{{ data.legenda || 'Venha conhecer nossa oficina, entre no saiba mais' }}</p>
-            <button :style="{background: white}">{{ data.botao }}</button>
+        <div v-if="data" class="fundo">
+            <h1 :style="{ color }">{{ data.titulo || data.Título || data.title || 'Melhores serviços para você' }}</h1>
+            <p :style="{color: colorText}">{{ data.legenda || data.Legenda || data.text || 'Venha conhecer nossa oficina, entre no saiba mais' }}</p>
+            <button :style="{background: white}">{{ data.botao || data.Botão || data.button || 'Saiba Mais' }}</button>
+        </div>
+        <div v-else>
+            <h1 :style="{ color }">Sua Oficina aqui</h1>
+            <p :style="{color: colorText}">Venha conferir nossas promoções</p>
+            <button :style="{background: white}">Saiba mais</button>
         </div>
     </section>
 </template>
@@ -24,7 +29,7 @@ const email = props.email
 async function buscarDados() {
   try {
     const alldata = await mongoFind(email);
-    data.value = alldata[0].resposta.banner;
+    data.value = alldata[0].resposta.banner || alldata[0].resposta.Banner;
     return data.value
   } catch (erro) {
     console.error('Erro ao buscar dados:', erro);

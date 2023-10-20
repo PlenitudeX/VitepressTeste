@@ -6,9 +6,9 @@
         </div>
         <div class="container">
             <div v-if="data" :style="{background: body}" class="card" v-for="servicos in data">
-                <h3 :style="{color: title}">{{ servicos.titulo }}</h3>
-                <p :style="{color}">{{ servicos.legenda }}</p>
-                <button :style="{background: white}">{{ servicos.botao }}</button>
+                <h3 :style="{color: title}">{{ servicos.titulo || servicos.Título || servicos.title }}</h3>
+                <p :style="{color}">{{ servicos.legenda || servicos.Legenda || servicos.text }}</p>
+                <button :style="{background: white}">{{ servicos.botao || servicos.Botão || servicos.button }}</button>
             </div>
             <div v-else :style="{background: body}" class="card" v-for="servico in servicos" :key="servico.id">
                 <h3 :style="{color: title}">{{ servico.titulo }}</h3>
@@ -36,7 +36,9 @@ const email = props.email
 async function buscarDados() {
   try {
     const alldata = await mongoFind(email);
-    data.value = alldata[0].resposta.beneficios;
+    data.value = alldata[0].resposta.beneficios || alldata[0].resposta.Benefícios || alldata[0].resposta.benefícios;
+    console.log(data.value);
+
     return data.value
   } catch (erro) {
     console.error('Erro ao buscar dados:', erro);
