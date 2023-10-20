@@ -61,50 +61,34 @@ const white = tema[style].$schema.White
 
 .banner h1 {
     font-size: 50px;
-    position: absolute;
-    top: 7rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 20px 70px 0;
 }
 
 .banner p {
     font-size: 24px;
-    position: absolute;
-    top: 17rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    padding: 20px 50px 0;
 }
 
 .banner button {
-    background-color: #fff;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 18px;
-    position: absolute;
-    top: 25rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 @media (max-width: 768px) {
     .banner {
-        height: 50vh;
+        height: 60vh;
     }
 
     .banner h1 {
         font-size: 30px;
-        top: 5rem;
+        padding: 20px 50px 0;
     }
 
     .banner p {
         font-size: 18px;
-        top: 12rem;
-    }
-
-    .banner button {
-        font-size: 16px;
-        top: 18rem;
+        padding: 15px 30px 0;
     }
 }
 
@@ -115,17 +99,16 @@ const white = tema[style].$schema.White
 
     .banner h1 {
         font-size: 20px;
-        top: 3rem;
+        padding: 10px 30px 0;
     }
 
     .banner p {
         font-size: 14px;
-        top: 8rem;
+        padding: 0px 20px ;
     }
 
     .banner button {
         font-size: 12px;
-        top: 14rem;
         padding: 8px 15px;
     }
 }
@@ -136,20 +119,17 @@ const white = tema[style].$schema.White
     }
 
     .banner h1 {
-        font-size: 15px;
-        top: 2rem;
-        line-height: 15px;
+        font-size: 18px;
+        line-height: 18px;
     }
 
     .banner p {
         font-size: 12px;
-        top: 5rem;
-        line-height: 10px;
+        line-height: 12px;
     }
 
     .banner button {
         font-size: 10px;
-        top: 9rem;
         padding: 5px 10px;
     }
 }
