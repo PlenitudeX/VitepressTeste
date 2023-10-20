@@ -48,89 +48,91 @@ const white = tema[style].$schema.White
 </script>
 
 <style>
+
 .banner {
-    background-image: url('https://picsum.photos/1000/1000');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
     text-align: center;
-    height: 70vh;
 }
 
 .banner .fundo {
-    background-color: rgba(183, 183, 183, 0.5);
+    background-image: url('https://picsum.photos/1000/1000');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .banner h1 {
     font-size: 50px;
-    padding: 20px 70px 0;
+    margin: 0;
+    line-height: 5rem;
 }
 
 .banner p {
     font-size: 24px;
-    padding: 20px 50px 0;
+    padding: 0 10%;
 }
 
 .banner button {
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.banner button:hover {
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
     .banner {
-        height: 60vh;
+        height: 100%;
+    }
+
+    .banner .fundo {
+        padding-bottom: 20px;
     }
 
     .banner h1 {
-        font-size: 30px;
-        padding: 20px 50px 0;
+        font-size: 45px;
+        padding-top: 8vh;
+        line-height: 3rem;
     }
 
     .banner p {
         font-size: 18px;
-        padding: 15px 30px 0;
-    }
-}
-
-@media (max-width: 576px) {
-    .banner {
-        height: 40vh;
-    }
-
-    .banner h1 {
-        font-size: 20px;
-        padding: 10px 30px 0;
-    }
-
-    .banner p {
-        font-size: 14px;
-        padding: 0px 20px ;
     }
 
     .banner button {
-        font-size: 12px;
-        padding: 8px 15px;
-    }
-}
-
-@media (max-width: 400px) {
-    .banner {
-        height: 30vh;
-    }
-
-    .banner h1 {
         font-size: 18px;
-        line-height: 18px;
+    }
+}
+
+@media (max-width: 425px) {
+    .banner h1 {
+        font-size: 36px;
+        padding-top: 8vh;
+        line-height: 2rem;
     }
 
     .banner p {
-        font-size: 12px;
-        line-height: 12px;
+        font-size: 16px;
     }
 
     .banner button {
-        font-size: 10px;
-        padding: 5px 10px;
+        font-size: 16px;
     }
 }
+
 </style>
