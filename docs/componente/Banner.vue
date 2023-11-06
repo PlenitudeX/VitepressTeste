@@ -3,12 +3,12 @@
         <div v-if="data" class="fundo">
             <h1 :style="{ color }">{{ data.titulo || data.Título || data.title || 'Melhores serviços para você' }}</h1>
             <p :style="{color: colorText}">{{ data.legenda || data.Legenda || data.text || 'Venha conhecer nossa oficina, entre no saiba mais' }}</p>
-            <button :style="{background: white}">{{ data.botao || data.Botão || data.button || 'Saiba Mais' }}</button>
+            <button :style="{background: white;color:colorText}">{{ data.botao || data.Botão || data.button || 'Saiba Mais' }}</button>
         </div>
         <div v-else>
             <h1 :style="{ color }">Sua Oficina aqui</h1>
             <p :style="{color: colorText}">Venha conferir nossas promoções</p>
-            <button :style="{background: white}">Saiba mais</button>
+            <button :style="{background: white; color:colorText}}">Saiba mais</button>
         </div>
     </section>
 </template>
@@ -16,14 +16,14 @@
 <script setup lang="ts">
 import tema from '../../tema.json'
 import { mongoFind } from '../mongo'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, reactive } from 'vue'
 
 const props = defineProps<{
     tema: string,
     email: string
 }>()
 
-const data = ref('')
+let data = reactive({})
 const email = props.email
 
 async function buscarDados() {
