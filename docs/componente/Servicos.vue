@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import tema from '../../tema.json';
 
 const props = defineProps<{

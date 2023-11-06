@@ -1,9 +1,9 @@
 <template>
     <section class="banner">
       <div v-if="data" class="fundo">
-        <h1 :style="{ color }">{{ data.value.titulo || data.value.Título || data.value.title || data.value.título || 'Melhores serviços para você' }}</h1>
-        <p :style="{ color: colorText }">{{ data.value.legenda || data.value.Legenda || data.value.text || 'Venha conhecer nossa oficina, entre no saiba mais' }}</p>
-        <button :style="{ background: white, color: colorText }">{{ data.value.botao || data.value.Botão || data.value.button || data.value.botão || 'Saiba Mais' }}</button>
+        <h1 :style="{ color }">{{ data.titulo || data.Título || data.title || data.título || 'Melhores serviços para você' }}</h1>
+        <p :style="{ color: colorText }">{{ data.legenda || data.Legenda || data.text || 'Venha conhecer nossa oficina, entre no saiba mais' }}</p>
+        <button :style="{ background: white, color: colorText }">{{ data.botao || data.Botão || data.button || data.botão || 'Saiba Mais' }}</button>
       </div>
       <div v-else>
         <h1 :style="{ color: color }">Sua Oficina aqui</h1>
@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import tema from '../../tema.json'
 import { mongoFind } from '../mongo'
-import { onMounted, ref, reactive, defineProps } from 'vue'
+import { onMounted, ref, reactive } from 'vue'
 
 const props = defineProps<{
     tema: string,
@@ -53,6 +53,7 @@ const white = tema[style].$schema.White
 <style>
 
 .banner {
+    background-image: url('https://picsum.photos/1000/1000');
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,7 +63,7 @@ const white = tema[style].$schema.White
 }
 
 .banner .fundo {
-    background-image: url('https://picsum.photos/1000/1000');
+    background-color: rgba(255, 255, 255, 0.376);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
