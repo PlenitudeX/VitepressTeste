@@ -6,9 +6,9 @@
         </div>
         <div class="container">
             <div v-if="data" :style="{background: body}" class="card" v-for="servicos in data">
-                <h3 :style="{color: title}">{{ servicos.titulo || servicos.Título || servicos.title }}</h3>
+                <h3 :style="{color: title}">{{ servicos.titulo || servicos.Título || servicos.title || servicos.título }}</h3>
                 <p :style="{color}">{{ servicos.legenda || servicos.Legenda || servicos.text }}</p>
-                <button :style="{background: white}">{{ servicos.botao || servicos.Botão || servicos.button }}</button>
+                <button :style="{background: white, color}">{{ servicos.botao || servicos.Botão || servicos.button || servicos.botão }}</button>
             </div>
             <div v-else :style="{background: body}" class="card" v-for="servico in servicos" :key="servico.id">
                 <h3 :style="{color: title}">{{ servico.titulo }}</h3>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-// import { ref } from 'vue';
+import { ref, defineProps, onMounted } from 'vue';
 import tema from '../../tema.json';
 
 const props = defineProps<{
@@ -28,7 +28,6 @@ const props = defineProps<{
 }>()
 
 import { mongoFind } from '../mongo'
-import { onMounted, ref } from 'vue'
 
 const data = ref('');
 const email = props.email
@@ -37,7 +36,6 @@ async function buscarDados() {
   try {
     const alldata = await mongoFind(email);
     data.value = alldata[0].resposta.beneficios || alldata[0].resposta.Benefícios || alldata[0].resposta.benefícios;
-    console.log(data.value);
 
     return data.value
   } catch (erro) {

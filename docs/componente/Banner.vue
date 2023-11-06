@@ -1,22 +1,23 @@
 <template>
     <section class="banner">
-        <div v-if="data" class="fundo">
-            <h1 :style="{ color }">{{ data.titulo || data.Título || data.title || 'Melhores serviços para você' }}</h1>
-            <p :style="{color: colorText}">{{ data.legenda || data.Legenda || data.text || 'Venha conhecer nossa oficina, entre no saiba mais' }}</p>
-            <button :style="{background: white;color:colorText}">{{ data.botao || data.Botão || data.button || 'Saiba Mais' }}</button>
-        </div>
-        <div v-else>
-            <h1 :style="{ color }">Sua Oficina aqui</h1>
-            <p :style="{color: colorText}">Venha conferir nossas promoções</p>
-            <button :style="{background: white; color:colorText}}">Saiba mais</button>
-        </div>
+      <div v-if="data" class="fundo">
+        <h1 :style="{ color }">{{ data.value.titulo || data.value.Título || data.value.title || data.value.título || 'Melhores serviços para você' }}</h1>
+        <p :style="{ color: colorText }">{{ data.value.legenda || data.value.Legenda || data.value.text || 'Venha conhecer nossa oficina, entre no saiba mais' }}</p>
+        <button :style="{ background: white, color: colorText }">{{ data.value.botao || data.value.Botão || data.value.button || data.value.botão || 'Saiba Mais' }}</button>
+      </div>
+      <div v-else>
+        <h1 :style="{ color: color }">Sua Oficina aqui</h1>
+        <p :style="{ color: colorText }">Venha conferir nossas promoções</p>
+        <button :style="{ background: white, color: colorText }">Saiba mais</button>
+      </div>
     </section>
-</template>
+  </template>
+
 
 <script setup lang="ts">
 import tema from '../../tema.json'
 import { mongoFind } from '../mongo'
-import { onMounted, ref, reactive } from 'vue'
+import { onMounted, ref, reactive, defineProps } from 'vue'
 
 const props = defineProps<{
     tema: string,
@@ -30,6 +31,8 @@ async function buscarDados() {
   try {
     const alldata = await mongoFind(email);
     data.value = alldata[0].resposta.banner || alldata[0].resposta.Banner;
+    console.log(data.value);
+
     return data.value
   } catch (erro) {
     console.error('Erro ao buscar dados:', erro);
