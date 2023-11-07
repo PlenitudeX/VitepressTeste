@@ -1,9 +1,9 @@
 <template>
     <section class="banner">
       <div v-if="data" class="fundo">
-        <h1 :style="{ color }">{{ data.titulo || data.Título || data.title || data.título  || data.value.titulo || data.value.Título || data.value.title || data.value.título || 'Melhores serviços para você' }}</h1>
-        <p :style="{ color: colorText }">{{ data.legenda || data.Legenda || data.text || data.value.legenda || data.value.Legenda || data.value.text || 'Venha conhecer nossa oficina, entre no saiba mais' }}</p>
-        <button :style="{ background: white, color: colorText }">{{ data.botao || data.Botão || data.button || data.botão || data.value.botao || data.value.Botão || data.value.button || data.value.botão || 'Saiba Mais' }}</button>
+        <h1 :style="{ color }">{{ data.titulo || data.Título || data.title || data.título  || 'Melhores serviços para você' }}</h1>
+        <p :style="{ color: colorText }">{{ data.legenda || data.Legenda || data.text  || 'Venha conhecer nossa oficina, entre no saiba mais' }}</p>
+        <button :style="{ background: white, color: colorText }">{{ data.botao || data.Botão || data.button || data.botão  || 'Saiba Mais' }}</button>
       </div>
       <div v-else>
         <h1 :style="{ color: color }">Sua Oficina aqui</h1>
@@ -31,7 +31,7 @@ async function buscarDados() {
   try {
     const alldata = await mongoFind(email);
     data.value = alldata[0].resposta.banner || alldata[0].resposta.Banner;
-    console.log(data.value);
+    // console.log(data.value);
 
     return data.value
   } catch (erro) {
