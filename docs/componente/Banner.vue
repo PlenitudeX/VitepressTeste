@@ -24,7 +24,7 @@ const props = defineProps<{
     email: string
 }>()
 
-let data = reactive({})
+let data = reactive({titulo: '', título: '', legenda: '', botao: '', Título: '', Legenda: '', Botão: '', title: '', text: '', button: '', botão: '', value: {titulo: '', Título: '', title: '', título: '', legenda: '', Legenda: '', text: '', botao: '', button: '', botão: '', Botão: ''}})
 const email = props.email
 
 async function buscarDados() {
