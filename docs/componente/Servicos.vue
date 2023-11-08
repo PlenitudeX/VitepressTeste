@@ -6,9 +6,9 @@
         </div>
         <div class="container">
             <div v-if="data" :style="{background: body}" class="card" v-for="servicos in data">
-                <h3 :style="{color: title}">{{ servicos.titulo || servicos.Título || servicos.title || servicos.título }}</h3>
-                <p :style="{color}">{{ servicos.legenda || servicos.Legenda || servicos.text }}</p>
-                <button :style="{background: white, color}">{{ servicos.botao || servicos.Botão || servicos.button || servicos.botão }}</button>
+                <h3 :style="{color: title}">{{ servicos.titulo || servicos.Título || servicos.title || servicos.título || servicos.Titulo || "Exemplo de título" }}</h3>
+                <p :style="{color}">{{ servicos.legenda || servicos.Legenda || servicos.text || 'Exemplo de legenda' }}</p>
+                <button :style="{background: white, color}">{{ servicos.botao || servicos.Botão || servicos.button || servicos.botão || servicos.Botao || "Botão" }}</button>
             </div>
             <div v-else :style="{background: body}" class="card" v-for="servico in servicos" :key="servico.id">
                 <h3 :style="{color: title}">{{ servico.titulo }}</h3>
