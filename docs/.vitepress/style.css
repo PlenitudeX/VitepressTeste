@@ -26,3 +26,15 @@
 .VPNavBarExtra, .VPNavScreenAppearance, .VPDocFooter, .VPNavBarAppearance {
     display: none !important;
 }
+
+body {
+    background-color: transparent !important;
+  }
+
+  html.dark {
+    color-scheme: none !important;
+  }
+
+  .VPNavBarMenu a.VPNavBarMenuLink, .title {
+    color: black !important;
+  }
