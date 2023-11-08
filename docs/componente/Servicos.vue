@@ -35,7 +35,7 @@ const email = props.email
 async function buscarDados() {
   try {
     const alldata = await mongoFind(email);
-    data.value = alldata[0].resposta.beneficios || alldata[0].resposta.Benefícios || alldata[0].resposta.benefícios;
+    data.value = alldata[0].resposta.beneficios || alldata[0].resposta.Benefícios || alldata[0].resposta.benefícios || alldata[0].resposta.Beneficios;
 
     return data.value
   } catch (erro) {
