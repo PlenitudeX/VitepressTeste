@@ -45,6 +45,10 @@ html.dark {
 }
 
 .VPNavBarMenu a.VPNavBarMenuLink,
-.title, .container .top, .container .middle, .container .botton {
+.title {
   color: black !important;
+}
+
+.container .top, .container .middle, span.bottom {
+    background-color: black !important;
 }
