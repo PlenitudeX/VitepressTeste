@@ -1,40 +1,50 @@
-.VPDoc, .content, .vp-doc h2 {
-    padding: 0 !important;
+.VPDoc,
+.content,
+.vp-doc h2 {
+  padding: 0 !important;
 }
 
-.VPDoc.has-aside .content-container, .vp-doc h2 {
-    margin: 0 !important;
+.VPDoc.has-aside .content-container,
+.vp-doc h2 {
+  margin: 0 !important;
 }
 
-.VPDoc.has-aside .content, .VPDoc.has-aside .container, .content-container, .aside {
-    max-width: 100% !important;
+.VPDoc.has-aside .content,
+.VPDoc.has-aside .container,
+.content-container,
+.aside {
+  max-width: 100% !important;
 }
 
 .VPTeamMembers {
-    padding: 10px;
+  padding: 10px;
 }
 
 .vp-doc h2 {
-    border: none;
+  border: none;
 }
 
-.aside{
-    padding-left: 0 !important;
-    width: 0 !important;
+.aside {
+  padding-left: 0 !important;
+  width: 0 !important;
 }
 
-.VPNavBarExtra, .VPNavScreenAppearance, .VPDocFooter, .VPNavBarAppearance {
-    display: none !important;
+.VPNavBarExtra,
+.VPNavScreenAppearance,
+.VPDocFooter,
+.VPNavBarAppearance {
+  display: none !important;
 }
 
 body {
-    background-color: transparent !important;
-  }
+  background-color: transparent !important;
+}
 
-  html.dark {
-    color-scheme: none !important;
-  }
+html.dark {
+  color-scheme: none !important;
+}
 
-  .VPNavBarMenu a.VPNavBarMenuLink, .title {
-    color: black !important;
-  }
+.VPNavBarMenu a.VPNavBarMenuLink,
+.title, .container .top, .container .middle, .container .botton {
+  color: black !important;
+}
