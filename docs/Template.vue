@@ -2,8 +2,8 @@
     <div class="oficina-mecanica">
         <Banner :tema="Tema" :email="email"/>
         <Servicos :tema="Tema" :email="email"/>
-        <h3>Funcionários</h3>
-        <VPTeamMembers size="small" :members="members" />
+        <!-- <h3>Funcionários</h3>
+        <VPTeamMembers size="small" :members="members" /> -->
     </div>
     <Footer :tema="Tema || 0"/>
 </template>

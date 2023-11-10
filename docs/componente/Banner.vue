@@ -53,7 +53,7 @@ const white = tema[style].$schema.White
 <style>
 
 .banner {
-    background-image: url('https://picsum.photos/1000/1000');
+    background-image: url('https://picsum.photos/1000/500');
     display: flex;
     flex-direction: column;
     justify-content: center;
